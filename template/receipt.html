@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="container">
+  <h1>Payment Receipt</h1>
+  <p>User Name: {{ booking.name }}</p>
+  <p>Email: {{ booking.email }}</p>
+  <p>Total Price: {{ booking.total_price }}</p>
+  <p>Advance Amount: {{ booking.amount }}</p>
+  <p>Remaining Amount: {{ booking.total_price|floatformat:2|floatval - booking.amount|floatformat:2 }}</p>
+</div>
+
+{% endblock %}

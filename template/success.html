@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="my-5 py-5">
+      <div class="container py-5 my-5 mt-5 text-center">
+        <h1>Payment Successful!</h1>
+       <p>Thank you for your purchase. Your payment has been successfully processed.</p>
+      <button><a href="{% url 'index.html' %}">Back To Home</a></button>
+      </div>
+    </div>
+
+
+        
+    {% endblock %}

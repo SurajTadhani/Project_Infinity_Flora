@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="banner-header valign bg-img bg-fixed" data-overlay-dark="1" data-background="{% static 'images/decoration21.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Blog</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog -->
+    <div class="blog section-padding">
+        <div class="container">
+            {% for s in latestnews %}
+                {% if forloop.counter0|divisibleby:2 %}
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="img left"><a href="{% url 'post.html' %}"><img src="{{s.headImg.url}}" alt=""></a></div>
+                        </div>
+                        <div class="col-md-6 valign">
+                            <div class="content">
+                                <div class="date">
+                                    <h3>{{s.header}}</h3>
+                                    <h6>{{s.date}}</h6>
+                                </div>
+                                <div class="cont">
+                                    <div class="info">
+                                        <h6><a href="{% url 'blog.html' %}">by Infinityflora</a> / <a href="{% url 'blog.html' %}" class="tags">Event Planner</a></h6>
+                                    </div>
+                                    <h4>{{s.paragraph}}</h4>
+                                    <a href="{% url 'post.html' %}" class="more" data-splitting><span>Read More</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row mb-5">
+                        <div class="col-md-6 order2 valign">
+                            <div class="content">
+                                <div class="date">
+                                    <h3>{{s.header}}</h3>
+                                    <h6>{{s.date}}</h6>
+                                </div>
+                                <div class="cont">
+                                    <div class="info">
+                                        <h6><a href="{% url 'blog.html' %}">by Infinityflora</a> / <a href="{% url 'blog.html' %}" class="tags">Event Planner</a></h6>
+                                    </div>
+                                    <h4>{{s.paragraph}}</h4>
+                                    <a href="{% url 'post.html' %}" class="more" data-splitting><span>Read More</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img right"><a href="{% url 'post.html' %}"><img src="{{s.headImg.url}}" alt=""></a></div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <!-- Pagination -->
+           
+        </div>
+    </div>
+  
+    {% endblock %}

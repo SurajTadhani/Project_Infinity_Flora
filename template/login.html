@@ -1,0 +1,73 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<div
+  class="banner-header valign bg-img bg-fixed"
+  data-overlay-dark="1"
+  data-background="{% static 'images/banner/3.jpg' %}"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Login</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact -->
+<div class="container">
+  <h5 class="mb-30 text-center">Login</h5>
+  <div class="col-md-12 offset-md-3">
+    <form method="post" class="" action=''>
+      {% csrf_token %}
+      <!-- Form message -->
+        
+      <div class="row">
+        <div class="col-12">
+          <div
+            class="alert alert-success contact__msg"
+            style="display: none"
+            role="alert"
+          >
+            Your message was sent successfully.
+          </div>
+        </div>
+      </div>
+    
+      <!-- Form elements -->
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for=""><b>UserName</b></label>
+          <input
+            name="username"
+            type="text"
+            placeholder="Enter UserName *"
+            required
+          />
+        </div>
+
+        <div class="col-md-12 form-group">
+          <label for=""><b>PASSWORD</b></label>
+          <input
+            name="password"
+            type="password"
+            placeholder="password*"
+            required
+          />
+        </div>
+      <div class="">
+        <a class="" style="padding-right: 200px;" href="{% url 'reset_password' %}">Reset Password...</a>
+        <a href="{% url 'register' %}"><span class=''>Create Your Account&nbsp; &rarr;</span></a>
+      </div>
+      
+        <div class="col-md-12 mb-5">
+          <input name="submit" type="submit" value="Login" />
+        </div>
+        
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,181 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+
+<div 
+  class="banner-header valign bg-img bg-fixed " 
+  data-overlay-dark="1"
+  data-background="{% static 'images/decoration26.jpeg' %}"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Services</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Services -->
+<div class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Our Services</h2>
+        <hr class="line line-hr-center" />
+      </div>
+    </div>
+    <div class="row">
+      {% for s in image %}
+      <div class="col-md-4">
+        <div class="services-item">
+          <img class="services-img" src="{{s.img.url}}" alt="" />
+          <div class="services-caption">
+            <div class="services-subtitle">
+              <a href="wedding\{{s.header}}">{{s.header}}</a>
+            </div>
+            <div class="services-title">
+              <a href="wedding\{{s.header}}">{{s.header}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- Pricing -->
+
+<div class="price-section price section-padding bg-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Pricing Plan</h2>
+        <hr class="line line-hr-center" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 owl-carousel owl-theme">
+        {% for s in pricingplan %}
+        <div class="item">
+          <div class="cont">
+            <div class="type">
+              <h6>{{s.text1}}</h6>
+            </div>
+            <div class="value">
+              <h4>{{s.text2}}<span>/-</span></h4>
+              <p>{{s.text3}}</p>
+            </div>
+            <div class="feat">
+              <ul>
+                <li>{{s.text4}}</li>
+                <li>{{s.text5}}</li>
+                <li>{{s.text6}}</li>
+                <li>{{s.text7}}</li>
+              </ul>
+            </div>
+            <button class="bethany-btn2" type="submit">
+              <a href="{% url 'D1.html' %}">Details</a>
+            </button>
+          </div>
+        </div>
+        {% endfor %} {% comment %}
+        <div class="item">
+          <div class="cont">
+            <div class="type">
+              <h6>Party</h6>
+            </div>
+            <div class="value">
+              <h4>3500<span>/-</span></h4>
+              <p>Starting From</p>
+            </div>
+            <div class="feat">
+              <ul>
+                <li>Decoration</li>
+                <li>DJ & Sound</li>
+                <li>Photographer</li>
+                <li>Party Planner</li>
+              </ul>
+            </div>
+            <button class="bethany-btn2" type="submit">
+              <a href="{% url 'D1.html' %}">Details</a>
+            </button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="cont">
+            <div class="type">
+              <h6>Full Wedding</h6>
+            </div>
+            <div class="value">
+              <h4>6500<span>/-</span></h4>
+              <p>Starting From</p>
+            </div>
+            <div class="feat">
+              <ul>
+                <li></li>
+                <li>DJ & Sound</li>
+                <li>Photographer</li>
+                <li>Make-Up & Hair Dresser</li>
+              </ul>
+            </div>
+            <button class="bethany-btn2" type="submit">
+              <a href="{% url 'D1.html' %}">Details</a>
+            </button>
+          </div>
+        </div>
+        <div class="item">
+          <div class="cont">
+            <div class="type">
+              <h6>Pre - Wedding</h6>
+            </div>
+            <div class="value">
+              <h4>5500<span>/-</span></h4>
+              <p>Starting From</p>
+            </div>
+            <div class="feat">
+              <ul>
+                <li>Decoration</li>
+                <li>DJ & Sound</li>
+                <li>Photographer</li>
+                <li>Venue Booking</li>
+              </ul>
+            </div>
+            <button class="bethany-btn2" type="submit">
+              <a href="{% url 'D1.html' %}">Details</a>
+            </button>
+          </div>
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- F.A.Qs -->
+<div class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>F.A.Qs</h2>
+        <hr class="line line-hr-center" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2 faqs-accordion">
+        <div class="accordion">
+          {% for s in textplan %}
+          <div class="item">
+            <div class="title">
+              <h6>{{s.header1}}</h6>
+            </div>
+            <div class="accordion-info active" style="display: none">
+              <p>{{s.textplan}}</p>
+            </div>
+          </div>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

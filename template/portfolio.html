@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <!-- Header Banner -->
+    <div class="banner-header valign bg-img bg-fixed" data-overlay-dark="1" data-background="{% static 'images/banner/2.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Portfolio</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Photo Gallery -->
+    <div class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>Photo Gallery</h2>
+                    <hr class="line line-hr-center">
+                </div>
+            </div>
+            <div class="row">
+                {% for s in photogallery %}
+                <div class="col-md-4 gallery-item">
+                    
+                    <a href="{% static 'images/gallery/1.1.jpeg' %}" title="" class="img-zoom">
+                        <div class="gallery-box">
+                            <div class="gallery-img"> <img src="{{s.galleryImg}}" class="img-fluid mx-auto d-block" alt=""> </div>
+                            <div class="gallery-detail text-center"> <i class="ti-heart"></i> </div>
+                        </div>
+                    </a>
+                  
+                </div>
+                {% endfor %}
+               
+            </div>
+        </div>
+    </div>
+    <!-- Video Gallery -->
+    <div class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>Video Gallery</h2>
+                    <hr class="line line-hr-center">
+                </div>
+            </div>
+            <div class="row">
+                <!-- 2 columns -->
+                {% for s in videogallery %}
+                <div class="{{s.column1}}">
+                    <div class="vid-area mb-30">
+                        <div class="vid-icon">
+                            <img src="{{ s.galleryvideosImg.url }}" alt="Video Thumbnail" class="video-thumbnail">
+                            <a class="video-gallery-button vid" href="https://www.youtube.com/watch?v=6BCA0uEfUw4" target="_blank">
+                                <span class="video-gallery-polygon">
+                                    <i class="ti-control-play"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+               
+            </div>
+        </div>
+    </div>
+    <div class="section-padding">
+        <div class="container">
+            <div class="row">
+                {% for s in videodemo %}
+                <div class="{{s.col1}}">
+                    <div class="col-12">
+                        <img class='my_img' src="{{s.gallerydemo.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-md-4">
+                    <div class="row">
+                        {%for s in videodemo1 %}
+                        <div class="{{s.col}} my-3">
+                            <img class='my_img1' src="{{s.gallerydemo1.url}}" alt="">
+                          
+                        </div>
+                        
+                        {% endfor %}
+                        {%for s in videodemo2 %}
+                        <div class="{{s.col}} my-3">
+                            <img style="width: fit-content;" class='my_img1' src="{{s.gallerydemo1.url}}" alt="">
+                          
+                        </div>
+                        
+                        {% endfor %}
+                       
+                        </div>
+                     
+                </div>
+                {% for s in videodemo %}
+                <div class="{{s.col1}}">
+                    
+                        <img class='my_img' src="{{s.gallerydemo.url}}" alt="">
+                   
+                </div>
+                {% endfor %}
+            </div>
+            
+           
+            
+            
+        </div>
+        
+        
+    </div>
+
+    {% endblock %}

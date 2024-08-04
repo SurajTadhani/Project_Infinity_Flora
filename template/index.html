@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+    <!-- Slider & Services -->
+    <div class="bethany-homepage-slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bethany-slider">
+                           {% for s in image %}
+                        <div class="bethany-slider-item">
+                             <img class="bethany-slider-img" src="{{s.img.url}}" alt="">
+                                <div class="bethany-slider-caption">
+                                    <div class="bethany-slider-subtitle"><a href="wedding\{{s.header}}">{{s.header}}</a></div>
+                                    <div class="bethany-slider-title"><a href="wedding\{{s.header}}">{{s.header}}</a></div>
+                                </div>
+                        </div>
+                            {% endfor %}
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="signature">Services</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About -->
+    <div class="section-padding">
+        <div class="container">
+            {% for s in content %}
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h2>{{s.head}}</h2>
+                    <hr class="line line-hr-left">
+                    <h6>{{s.headContent1}}</h6>
+                    <p>{{s.headContent2}}</p>
+                    <p>{{s.headContent3}}</p>
+                    <p>{{s.headContent4}}</p>
+                  
+                </div>
+                
+               
+                <div class="col-md-5 offset-1">
+                    <div class="about-img">
+                        <div class="img">
+                            <img src="{{s.headImg.url}}" alt="">
+                        </div>
+                        <div class="about-img-2">Infinity flora</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- Wedding Dates -->
+    <div class="section-padding bg-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mb-30">
+                    <h2>Event Dates</h2>
+                    <hr class="line line-hr-left">
+                    <p>Your at-a-glance guide to where I stand on all the truly important things. Wedding elit miss the eget the solin miss citudino selus rutrum in miss vestibulum eleifen ornare torto.</p>
+                </div>
+                <div class="col-md-6 offset-md-1">
+                    <table class="wedding-date-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h6>1. Ahmedabad<br><span>{September: 2023}</span></h6>
+                                </td>
+                                <td>
+                                    <p>Amit</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>2. Rajkot<br><span>{October : 2023}</span></h6>
+                                </td>
+                                <td>
+                                    <p>Jatin</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>3. surat<br><span>{November : 2023}</span></h6>
+                                </td>
+                                <td>
+                                    <p>Nirmay</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>4. Gandhinagar<br><span>{December : 2023}</span></h6>
+                                </td>
+                                <td>
+                                    <p>Raaj</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonials -->
+    <div class="testimonials section-padding bg-1">
+        <div class="background bg-fixed bg-img" data-overlay-dark="2" data-background="{% static 'images/banner/marriage_group3.jpeg' %}"> </div>
+        <div class="container">
+           
+            <div class="row">
+               
+                <div class="col-md-12 text-center">
+                    <h2>Client Love</h2>
+                   
+                    <hr class="line line-hr-center">
+                </div>
+               
+            </div>
+            <div class="row">
+                
+                <div class="col-md-12">
+                    
+                    <div class="testim">
+                        {% for s in slider %}
+                        <div class="box">
+                            <div class="item">
+                                <div class="cont">
+                                    <div class="img"> <img src="{{s.headImg.url}}" alt=""> </div>
+                                    <div class="info">
+                                        <h5>{{s.header}}</h5> <span>{{s.city}}</span>
+                                    </div>
+                                </div>
+                                <p>{{s.paragraph}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% comment %} <div class="box">
+                            <div class="item">
+                                <div class="cont">
+                                    <div class="img"> <img src="{{s.headImg.url}}" alt=""> </div>
+                                    <div class="info">
+                                        <h5>{{s.header}}</h5> <span>{{s.city}}</span>
+                                    </div>
+                                </div>
+                                <p>{{s.paragraph}}</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="item">
+                                <div class="cont">
+                                    <div class="img"> <img src="{{s.headImg.url}}" alt=""> </div>
+                                    <div class="info">
+                                        <h5>{{s.header}}</h5> <span>{{s.city}}</span>
+                                    </div>
+                                </div>
+                                <p>{{s.paragraph}}</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <div class="item">
+                                <div class="cont">
+                                    <div class="img"> <img src="{{s.headImg.url}}" alt=""> </div>
+                                    <div class="info">
+                                        <h5>{{s.header}}</h5> <span>{{s.city}}</span>
+                                    </div>
+                                </div>
+                                <p>{{s.paragraph}}</p>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- News & Blog -->
+    <div class="blog section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Latest News</h2>
+                    <hr class="line line-hr-left">
+                </div>
+            </div>
+            {% for s in latestnews %}
+            {% if forloop.counter0 < 2 %}
+                {% if forloop.counter0|divisibleby:2 %}
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="img left"><a href="{% url 'post.html' %}"><img src="{{s.headImg.url}}" alt=""></a></div>
+                        </div>
+                        <div class="col-md-6 valign">
+                            <div class="content">
+                                <div class="date">
+                                    <h3>{{s.header}}</h3>
+                                    <h6>{{s.date}}</h6>
+                                </div>
+                                <div class="cont">
+                                    <div class="info">
+                                        <h6><a href="{% url 'blog.html' %}">by Infinityflora</a> / <a href="{% url 'blog.html' %}" class="tags">Event Planner</a></h6>
+                                    </div>
+                                    <h4>{{s.paragraph}}</h4>
+                                    <a href="{% url 'post.html' %}" class="more" data-splitting><span>Read More</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row mb-5">
+                        <div class="col-md-6 order2 valign">
+                            <div class="content">
+                                <div class="date">
+                                    <h3>{{s.header}}</h3>
+                                    <h6>{{s.date}}</h6>
+                                </div>
+                                <div class="cont">
+                                    <div class="info">
+                                        <h6><a href="{% url 'blog.html' %}">by Infinityflora</a> / <a href="{% url 'blog.html' %}" class="tags">Event Planner</a></h6>
+                                    </div>
+                                    <h4>{{s.paragraph}}</h4>
+                                    <a href="{% url 'post.html' %}" class="more" data-splitting><span>Read More</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="img right"><a href="{% url 'post.html' %}"><img src="{{s.headImg.url}}" alt=""></a></div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        
+
+        </div>
+    </div>
+    <div class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center">
+                        <video class="img-responsive" autoplay loop muted>
+                          <source src="{% static 'images/wedding1.mp4' %}" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Clients -->
+    <div class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 owl-carousel owl-theme">
+                    {% for s in clientsImg %}
+                    <!-- Clients -->
+                    <div class="client-logo">
+                        <a href="#"><img src="{{s.headImg1.url}}" alt=""></a>
+                    </div>
+                    <div class="client-logo">
+                        <a href="#"><img src="{{s.headImg2.url}}" alt=""></a>
+                    </div>
+                    <div class="client-logo">
+                        <a href="#"><img src="{{s.headImg3.url}}" alt=""></a>
+                    </div>
+                    <div class="client-logo">
+                        <a href="#"><img src="{{s.headImg4.url}}" alt=""></a>
+                    </div>
+                    <div class="client-logo">
+                        <a href="#"><img src="{{s.headImg5.url}}" alt=""></a>
+                    </div>
+                    <div class="client-logo">
+                        <a href="#"><img src="{{s.headImg6.url}}" alt=""></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}

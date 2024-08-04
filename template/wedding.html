@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="bethany-services-section mb-60">
+        <div class="container">
+            {% for i in items_all %}
+            <div class="row">
+                <div class="col-md-12 mb-30 ">
+                     <img class="img-fluid" src="{{i.img1.url}}" alt=""> </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                   <a href="wedding\{{s.header}}"><h3>{{i.header}}</h3></a>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <p>{{i.content}}</p>
+                    <br>
+                </div>
+                <div class="col-md-12">
+                    <h5>Package Includes</h5>
+                    <p><b>1.</b>{{i.packageText1}}</p>
+                    <p><b>2.</b> {{i.packageText2}}</p>
+                    <p><b>3.</b> {{i.packageText3}}</p>
+                    <p><b>4.</b> {{i.packageText4}}</p>
+                    <p><b>5.</b>{{i.packageText5}}</p>
+                    <p><b>6.</b> {{i.packageText6}}</p>
+                    <p><b>7.</b>{{i.packageText7}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 gallery-item">
+                    <a href="{{i.img1.url}}" title="" class="img-zoom">
+                        <div class="gallery-box">
+                            <div class="gallery-img"> <img src='{{i.img1.url}}' class="img-fluid mx-auto d-block" alt=""> </div>
+                            <div class="gallery-detail text-center"> <i class="ti-heart"></i> </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 gallery-item">
+                    <a href="{{i.img2.url}}" title="" class="img-zoom">
+                        <div class="gallery-box">
+                            <div class="gallery-img"> <img src="{{i.img2.url}}" class="img-fluid mx-auto d-block" alt=""> </div>
+                            <div class="gallery-detail text-center"> <i class="ti-heart"></i> </div>
+                        </div>
+                    </a>
+                </div>
+                 <div class="col-md-6 gallery-item">
+                    <a href="{{i.img3.url}}" title="" class="img-zoom">
+                        <div class="gallery-box">
+                            <div class="gallery-img"> <img src="{{i.img3.url}}" class="img-fluid mx-auto d-block" alt=""> </div>
+                            <div class="gallery-detail text-center"> <i class="ti-heart"></i> </div>
+                        </div>
+                    </a>
+                </div>  
+                <div class="col-md-6 gallery-item">
+                    <a href="{{i.img4.url}}" title="" class="img-zoom">
+                        <div class="gallery-box">
+                            <div class="gallery-img"> <img src="{{i.img4.url}}" class="img-fluid mx-auto d-block" alt=""> </div>
+                            <div class="gallery-detail text-center"> <i class="ti-heart"></i> </div>
+                        </div>
+                    </a>
+                </div> 
+            </div>
+            {% endfor %}
+            
+            <button class="bethany-btn2" type="submit">
+                <a href="{% url 'D1.html' %}">Book Now</a>
+              </button>
+        </div>
+        
+        
+        </div>
+    
+ 
+    {% endblock %}
