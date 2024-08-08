@@ -1,5 +1,5 @@
 """
-WSGI config for first_project project.
+WSGI config for InfinityFlora project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'InfinityFlora.settings')
 
 application = get_wsgi_application()
 

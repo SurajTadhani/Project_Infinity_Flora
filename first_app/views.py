@@ -1,7 +1,7 @@
 from datetime import timezone
 from django.shortcuts import render,HttpResponse,redirect
 import razorpay
-from first_project import settings
+from InfinityFlora import settings
 from .models import *
 from .forms import *
 from datetime import datetime
