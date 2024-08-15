@@ -2,13 +2,13 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from dotenv import load_dotenv
+
 
 
 def main():
-    load_dotenv()
+   
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'InfinityFlora.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

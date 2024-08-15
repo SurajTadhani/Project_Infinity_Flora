@@ -29,11 +29,11 @@
    
     <br>
     <div class="d-flex justify-content-between">
-        <div>
-          <label for="fromDate"><b class="fs-2">From DATE</b></label>
+        <div class="px-2">
+          <label for="fromDate"><b class="fs-2 ">From DATE</b></label>
           <input id="fromDate" name="fromDate" type="date" placeholder="Enter Date">
         </div>
-        <div>
+        <div class="px-2">
           <label for="toDate"><b>To DATE</b></label>
           <input id="toDate" name="toDate" type="date" placeholder="Enter Date">
         </div>
@@ -51,22 +51,22 @@
    <div>
     <p id="note"></p>
    </div>
-    <div class="container d-flex justify-content-between align-items-center">
-        <a class="read_more" ><button type="submit">Book</button></a>
-        <div class="col-md-14">
-            <select class="form-control" id="modelselection" name="modelselection" onchange="updatePrice()">
-                <option value="">Select Event</option>
-                <option value="1">Festival</option>
-                <option value="2">Corporate Events</option>
-                <option value="3">Ring Ceremony</option>
-                <option value="4">Birthday Party</option>
-                <option value="5">Special Events</option>
-                <option value="6">Wedding</option>
-                
-                
-
+   <div class="">
+       <div class="p-2">
+           <select class="form-control" id="modelselection" name="modelselection" onchange="updatePrice()">
+               <option value="">Select Event</option>
+               <option value="1">Festival</option>
+               <option value="2">Corporate Events</option>
+               <option value="3">Ring Ceremony</option>
+               <option value="4">Birthday Party</option>
+               <option value="5">Special Events</option>
+               <option value="6">Wedding</option>
+               
+               
+               
             </select>
         </div>
+        <a class="read_more" ><button type="submit">Book</button></a>
         
 
     </div>

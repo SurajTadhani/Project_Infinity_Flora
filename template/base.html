@@ -56,6 +56,11 @@
     }
 }
     </script>
+    <style>
+      html,body{
+        overflow-x: clip;
+      }
+    </style>
   </head>
 
   <body>
@@ -91,7 +96,7 @@
                       aria-expanded="false"
                       aria-label="Toggle navigation"
                     >
-                      <span class="navbar-toggler-icon"></span>
+                      <span class="navbar-toggler-icon text-black"></span>
                     </button>
                     <div
                       class="collapse navbar-collapse"
@@ -142,12 +147,18 @@
                             >Blog</a
                           >
                         </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false" style="border-bottom: 1px solid black;">
+                            {{ user.username }}
+                        </a>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item " href="{% url 'profile.html' %}">Profile</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                            
+                          </div>
+                        </li>
 
-                        <select class="border rounded-full fs-3 nav-item" onchange="handleSelection(this)">
-                          <option class="text-white" value="" disabled selected>{{ user.username }}</option>
-                          <option class="bg-info text-white" value="{% url 'profile.html' %}">Profile</option>
-                          <option class="bg-danger text-white" value="{% url 'logout' %}">Logout</option>
-                      </select>
+                        
                         {% else %}
                         <li class="nav-item">
                             <a

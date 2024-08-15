@@ -1,7 +1,7 @@
 from datetime import timezone
 from django.shortcuts import render,HttpResponse,redirect
 import razorpay
-from InfinityFlora import settings
+from first_project import settings
 from .models import *
 from .forms import *
 from datetime import datetime
@@ -18,6 +18,7 @@ from django.core.mail import send_mail
 
 
 # Create your views here.
+@login_required(login_url='login')
 def index(request):
   image = Items_details.objects.all()
   content = homeInfo.objects.all()
@@ -48,6 +49,8 @@ def indexDemo(request):
       'clientsImg': clientsImg,
    }
    return render(request,'indexDemo.html',indexDemo)
+
+@login_required(login_url='login')
 def about(request):
   content = aboutInfo.objects.all()
   creativeteam = aboutcreativeteam.objects.all()
@@ -58,6 +61,7 @@ def about(request):
     'clientsImg': clientsImg
   }
   return render(request,'about.html',about)
+
 def blog(request):
   latestnews = homelatestnews.objects.all()
   indexDemo = {
@@ -66,6 +70,8 @@ def blog(request):
    
    }
   return render(request,'blog.html',indexDemo)
+
+@login_required(login_url='login')
 def contact(request):
   if request.method == 'POST':
     Name = request.POST.get('name')
@@ -77,12 +83,14 @@ def contact(request):
     formData.save()
     return render(request, 'thank.html')
   return render(request,'contact.html')
+
 def birthday(request):
   return render(request,'birthday.html')
 
 def corporate(request):
   return render(request,'corporate.html')
 
+@login_required(login_url='login')
 def D1(request):
   error_message = None
   if request.method == 'POST':
@@ -117,6 +125,7 @@ def D1(request):
 def payment(request):
     return render(request,"payment.html")
 
+@login_required(login_url='login')
 def success(request):
     response = request.POST
     params_dict = {
@@ -175,7 +184,7 @@ def festival(request):
 def thank(request):
   return render(request,'thank.html')
 
-
+@login_required(login_url='login')
 def portfolio(request):
   photogallery = portphotogallery.objects.all()
   videogallery = portvideogallery.objects.all()
@@ -191,8 +200,10 @@ def portfolio(request):
   }
   return render(request,'portfolio.html',portfolio)
 
+
+@login_required(login_url='login')
 def post(request):
-    Data = commentform.objects.order_by('-date')[:3]
+    Data = commentform.objects.order_by('-date')[:4]
     context = {
         'data': Data,
     }
@@ -215,7 +226,7 @@ def post(request):
     return render(request, 'post.html', context)
 
 
-
+@login_required(login_url='login')
 def delete_comment(request, id):
     comment = get_object_or_404(commentform, id=id)
     comment.delete()
@@ -227,12 +238,16 @@ def ringceremony(request):
 
 def special_page(request):
   return render(request,'special_page.html')
+
+@login_required(login_url='login')
 def wedding(request,header):
   items_all = Items_details.objects.filter(header = header)
   wedding = {
      "items_all":items_all,
   }
   return render(request,'wedding.html',wedding)
+
+@login_required(login_url='login')
 def services(request):
   image = Items_details.objects.all()
   textplan = servicetextplan.objects.all()
@@ -243,8 +258,12 @@ def services(request):
     'pricingplan':pricingplan
   }
   return render(request,'services.html',data)
+
+@login_required(login_url='login')
 def profile(request):
   return render(request,'profile.html')
+
+@login_required(login_url='login')
 def editprofile(request):
   return render(request,'editprofile.html')
 
@@ -280,7 +299,6 @@ def login_user(request):
 
 
 @login_required
-
 def logout_user(request):
     logout(request)
     messages.success(request, ("Logout Successfull !!"))
@@ -342,30 +360,3 @@ def change_password(request):
     
     return render(request, 'changepassword.html', {'form': form})
 
-
-def booking(request):
-    error_message = None
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        number = request.POST.get('number')
-        email = request.POST.get('email')
-        client = razorpay.Client(auth=('rzp_test_VQhEfe2NCXbbwI', '2ibreCYL78DA3kjOhobCvz0f'))
-
-        razorpay_payment = client.order.create(dict(amount=(int(100)), currency='INR'))
-        order_id = razorpay_payment['id']
-    
-        book = Booking.objects.create(
-            name=name,
-            number=number,
-            email = email,
-            amount = 100,
-            order_id = order_id
-        )
-        book.save()
-        razorpay_payment['name'] = name
-        razorpay_payment['amount']= 100
-        razorpay_payment['order_id'] = order_id
-        form = Booking(request.POST or None)
-        return render(request, 'D1.html', {'razorpay_payment': razorpay_payment})
-    form = Booking()
-    return render(request,'D1.html', {'form': form, 'error_message':error_message})
